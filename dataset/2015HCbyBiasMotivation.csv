@@ -1,0 +1,36 @@
+motivation,target,incidents,offenses,victims,offenders
+Ethnicity,White,613,734,789,681
+Ethnicity,Black or African American,1745,2125,2201,1605
+Ethnicity,American Indian or Alaska Native,131,137,141,113
+Ethnicity,Asian,111,132,136,108
+Ethnicity,Native Hawaiian or Other Pacific Islander,4,6,6,3
+Ethnicity,"Multiple Races, Group",113,138,160,83
+Ethnicity,Arab,37,47,48,35
+Ethnicity,Hispanic or Latino,299,379,392,325
+Ethnicity,Other Race/Ethnicity/Ancestry,257,331,343,243
+Religion,Jewish,664,695,731,387
+Religion,Catholic,53,59,60,29
+Religion,Protestant,37,47,48,18
+Religion,Islamic (Muslim),257,301,307,228
+Religion,Other Religion,96,104,107,53
+Religion,"Multiple Religions, Group",51,57,58,30
+Religion,Mormon,8,8,8,6
+Religion,Jehovah's Witness,1,1,1,0
+Religion,"Eastern Orthodox (Russian, Greek, Other)",48,50,50,36
+Religion,Other Christian,15,18,18,15
+Religion,Buddhist,1,1,1,1
+Religion,Hindu,5,5,5,2
+Religion,Sikh,6,6,6,4
+Religion,Atheism/Agnosticism/etc.,2,2,2,0
+Orientation,Gay (Male),664,758,786,803
+Orientation,Lesbian,136,168,170,142
+Orientation,"Lesbian, Gay, Bisexual, or Transgender (Mixed Group)",203,235,248,218
+Orientation,Heterosexual,19,23,24,19
+Orientation,Bisexual,31,35,35,39
+Disability,Physical,43,52,52,40
+Disability,Mental,31,36,36,33
+Gender,Male,7,8,8,6
+Gender,Female,16,21,22,13
+Identity,Transgender,73,75,76,114
+Identity,Gender Non-Conforming,41,43,46,43
+Multiple,Multiple Bias,32,48,52,18
