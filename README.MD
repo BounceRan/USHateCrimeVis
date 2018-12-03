@@ -1,6 +1,6 @@
 # Hate crime by bias motivation 2014-2017 Visualization Project
 
-##Data Source:
+## Data Source:
 United States Department of Justice, Federal Bureau of
 Investigation. (November 2018). Hate Crime Statistics,
 2017. Retrieved (insert date), from (https://ucr.fbi.gov/
@@ -11,7 +11,7 @@ hate-crime).
 * [2014 Crime Data](https://ucr.fbi.gov/hate-crime/2014)
 
 
-##Description:
+## Description:
 FBI UCR program publishes USA Hate Crime Statistics every year. After looking
 through the data, I find it very unsettling that there was a sharp increase of hate
 crime cases in 2017. It is not hard to connect this increase to the political climate of
