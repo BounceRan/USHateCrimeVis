@@ -23,13 +23,18 @@ if (error) throw error;
           incidentsArray.push(data[i].incidents);
 
       }
-      console.log(motivationArray);
+      console.log(incidentsArray[1]);
 
       var circleoffset=20;
+      var privousValue=0;
       svg.selectAll("circle")
           .data(incidentsArray)
           .enter().append("circle")
-                  .attr("cx",function(d,i){ circleoffset+=d*0.05+(i*10);return circleoffset;})
+                  .attr("cx",function(d,i){
+                    if(i>0){
+                     privousValue= incidentsArray[i-1];
+                   }
+                    circleoffset+=d*0.05+privousValue*0.05 ;return circleoffset;})
                   .attr("cy","150")
                   .attr("r",function(d,i){return d*.05 })
                   .style("fill","rgba(200,0,0,.6)");
