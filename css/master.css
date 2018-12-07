@@ -2,3 +2,16 @@ html,body{
   margin: 0;
   height: 100%;
 }
+
+
+g .gtext {
+opacity: 0.1;
+-webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
+transition:  2s;
+}
+g:hover .gtext{
+  opacity: 1;
+  -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
+ transition:  2s;
+ cursor : default;
+}
