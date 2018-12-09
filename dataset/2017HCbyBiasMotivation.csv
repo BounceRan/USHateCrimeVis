@@ -1,7 +1,7 @@
 motivation,target,incidents,offenses,victims,offenders
 Ethnicity,White,741,844,864,758
-Ethnicity,Black or African American,2013,2358,2458,1742
-Ethnicity,American Indian or Alaska Native,251,281,321,228
+Ethnicity,Black,2013,2358,2458,1742
+Ethnicity,Native American,251,281,321,228
 Ethnicity,Asian,131,152,165,108
 Ethnicity,Native Hawaiian or Other Pacific Islander,16,17,18,10
 Ethnicity,"Multiple Races, Group",180,215,229,100
@@ -16,7 +16,7 @@ Religion,Other Religion,76,82,86,56
 Religion,"Multiple Religions, Group",47,54,57,35
 Religion,Mormon,15,15,15,8
 Religion,Jehovah's Witness,7,13,13,6
-Religion,"Eastern Orthodox (Russian, Greek, Other)",23,23,27,14
+Religion,"Eastern Orthodox",23,23,27,14
 Religion,Other Christian,27,31,32,18
 Religion,Buddhist,8,9,12,10
 Religion,Hindu,11,15,15,10
@@ -24,7 +24,7 @@ Religion,Sikh,20,24,26,18
 Religion,Atheism/Agnosticism/etc.,6,8,8,6
 Orientation,Gay (Male),679,758,774,778
 Orientation,Lesbian,126,159,164,129
-Orientation,"Lesbian, Gay, Bisexual, or Transgender (Mixed Group)",268,321,333,282
+Orientation,"Lesbian, Gay, Bisexual, or Transgender",268,321,333,282
 Orientation,Heterosexual,32,37,37,28
 Orientation,Bisexual,25,28,30,33
 Disability,Physical,32,35,37,31

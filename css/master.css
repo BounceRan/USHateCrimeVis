@@ -5,7 +5,7 @@ html,body{
 
 
 g .gtext {
-opacity: 0.1;
+opacity: 0.5;
 -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
 transition:  2s;
 }
@@ -17,15 +17,29 @@ g:hover .gtext{
 
 }
 
-
-g circle{
-opacity: 0.8;
+/*  */
+/* g circle{ */
+/* opacity: 0.8; */
 /* -webkit-transition: 1s; /* For Safari 3.1 to 6.0 */
 /* transition:  1s;  */
-}
-g:hover circle{
-  opacity: 1;
+/* } */
+/* g:hover circle{ */
+  /* opacity: 1; */
   /* -webkit-transition: 1s; /* For Safari 3.1 to 6.0 */
   /* transition:  1s; */
+
+/* } */
+
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+svg {
+position: absolute;
+/* display: inline-block;
+   margin-left: auto;
+   margin-right: auto; */
 
 }
