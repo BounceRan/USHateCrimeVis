@@ -1,19 +1,33 @@
 var table17, table16;
 var padding ={top: 20, right: 20, bottom:20,left:20};
 var motivationArray=[], targetArray=[],incidentsArray=[];
+var motivationArray2=[], targetArray2=[],incidentsArray2=[];
+var motivationArray3=[], targetArray3=[],incidentsArray3=[];
+var condition = false;
 // function preload() {
 //     // load the CSV data into our `table` variable and clip out the header row
 //     table17 = loadTable("dataset/2017HCbyBiasMotivation.csv", "csv", "header");
 //     table16 = loadTable("dataset/2016HCbyBiasMotivation.csv", "csv", "header");
 // }
 var svg=d3.selectAll("#viz").append("svg")
+                  .attr("id", "firstData")
                   .attr("height",2400)
-                  .attr("width",800)
+                  .attr("width",300)
                   .style('background', 'lightgrey');
 
- d3.csv("dataset/2017HCbyBiasMotivation.csv", function(error, data) {
+var svg2=d3.selectAll("#viz").append("svg")
+                              .attr("id", "secondData")
+                              .attr("height",2400)
+                              .attr("width",300)
+                              .style('background', 'lightgrey');
 
+var svg3=d3.selectAll("#viz").append("svg")
+                              .attr("id", "thirdData")
+                              .attr("height",2400)
+                              .attr("width",400)
+                              .style('background', 'lightgrey');
 
+ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
 if (error) throw error;
       table17=data;
       console.log(table17);
@@ -21,20 +35,37 @@ if (error) throw error;
           targetArray.push(data[i].target);
           motivationArray.push(data[i].motivation);
           incidentsArray.push(Number(data[i].incidents));
+
       }
 
-var sumOfInci= d3.sum(incidentsArray);
-console.log(sumOfInci);
+      d3.csv("dataset/2016HCbyBiasMotivation.csv", function(error, data) {
+      if (error) throw error;
+           table17=data;
+           console.log(table17);
+           for(var i= 0; i<data.length;i++){
+               targetArray2.push(data[i].target);
+               motivationArray2.push(data[i].motivation);
+               incidentsArray2.push(Number(data[i].incidents));
+           }
 
-var reSumOfInci= d3.scaleLinear()
-                        .domain([0,7500])
-                        .range([0,100]);
-console.log(reSumOfInci(sumOfInci));
+      });
+
+      d3.csv("dataset/2017HCbyBiasMotivation.csv", function(error, data) {
+      if (error) throw error;
+           table17=data;
+           console.log(table17);
+           for(var i= 0; i<data.length;i++){
+               targetArray3.push(data[i].target);
+               motivationArray3.push(data[i].motivation);
+               incidentsArray3.push(Number(data[i].incidents));
+           }
 
 
+            conditionOne(incidentsArray,150,svg);
+           conditionOne(incidentsArray3,150,svg3);
+           conditionOne(incidentsArray2,150,svg2);
 
-
-
+      });
 
 
 
@@ -42,84 +73,116 @@ console.log(reSumOfInci(sumOfInci));
 });
 
 
-
-var condition = false;
 
 svg.on("click", function(){
-  if(condition== false){
-   conditionOne();
+  if(condition == false){
+
+    conditionThree(incidentsArray,svg);
+      conditionThree(incidentsArray2,svg2);
+        conditionThree(incidentsArray3,svg3);
     condition =true;
-    console.log(condition);
+
   } else if (condition == true){
-conditionThree(200);
+conditionOne(incidentsArray,150,svg);
+conditionOne(incidentsArray2,150,svg2);
 //conditionThree(300);
 condition =false;
-console.log(condition);
+//console.log(condition);
   }
-
-
 });
 
 
+  //console.log(condition);
 
-function conditionOne(){
 
-  svg.selectAll("circle").remove();
-  svg.selectAll("text").remove();
+//condition one Code
+function conditionOne(inArray,x1,svgPic){
+  let sumOfInci1= d3.sum(inArray);
+  // let sumOfInci2= d3.sum(inArray2);
+  // let sumOfInci3= d3.sum(inArray3);
+  let  y=150 , x2=450 , x3=750;
+  this.x1=x1;
+  this.svgPic=svgPic;
 
-var sumCondition = svg.selectAll("circle")
-                .data(incidentsArray)
-                .enter()
-                .append("g")
-    sumCondition.append("circle")
-                .classed('ctext',true)
-                .attr("cy",100)
-                .attr("cx",500)
-                //.attr("r",0)
-                //.transition()
-                //.ease(d3.easeElastic)
-                //.duration(2000)
-                .attr("r","100")
+  //console.log(sumOfInci1);
+
+  var reSumOfInci= d3.scaleLinear()
+                          .domain([5600,7500])
+                          .range([80,150]);
+  console.log(reSumOfInci(sumOfInci1));
+svgPic.selectAll("g").remove();
+  svgPic.selectAll("circle").remove();
+  svgPic.selectAll("text").remove();
+
+var circles = svgPic//.selectAll("circle")
+                // .data([0,1,2])
+                // .enter()
+
+                // first data set
+                circles .append("g").append("circle")
+
+                .attr("cy",y)
+                .attr("cx",x1)
+                .attr("r",0)
+                .transition()
+                .ease(d3.easeElastic.period(0.8))
+                .duration(2000)
+                .attr("r",reSumOfInci(sumOfInci1))
                 .style("fill", "white");
+                  //text1
+                  circles.select("g").append("text")
+                  .classed('gtext', true)
+                  .attr("dy", ".35em")
+                  .attr('font-size',12)
+                  .attr('text-anchor', 'middle')
+                  .append("tspan")
+                  .text(function(d, i){ return "Total"})
+                  .attr("y",y)
+                  .attr("x",function(d){return x1});
+                  svgPic.selectAll("text").append("tspan")
+                  .text(function(d, i){ return sumOfInci1 })
+                  .attr("y",y+15)
+                  .attr("x",function(d){return x1});
 
-              }
+}
 
 
+function conditionThree(inArray,svgPic){
+  this.inArray=inArray;
+  this.svgPic=svgPic;
+  let xP=150;
+  svgPic.selectAll("g").remove();
+svgPic.selectAll("text").remove();
+svgPic.selectAll("circle").remove();
 
-
-function conditionThree(xPosition){
-
-svg.selectAll("circle").remove();
 //remap the incidents data
       //var maxOfInci= incidentsArray.sort(d3.descending);
-      var maxOfInci= d3.max(incidentsArray);
-      console.log(incidentsArray[1]);
+      var maxOfInci= d3.max(inArray);
+      console.log(inArray[1]);
         console.log(maxOfInci);
       var circleoffset=20;
       var privousValue=0;
       var reIncidentsArray= d3.scaleLinear()
                               .domain([0,2050])
-                              .range([0,140]);
-      var circles= svg.selectAll("circle")
-          .data(incidentsArray)
+                              .range([5,120]);
+      var circles= svgPic.selectAll("circle")
+          .data(inArray)
           .enter()
           .append("g");
           circles.append("circle")
-                  .classed('ctext',true)
-                  .attr("cx",xPosition)
+                  //.classed('ctext',true)
+                  .attr("cx",xP)
                   .attr("cy",0)
                   .transition()
                   .ease(d3.easeElastic)
                   .duration(2000)
                   .attr("cy",function(d,i){
                     if(i>0){
-                     privousValue= incidentsArray[i-1];
+                     privousValue= inArray[i-1];
                    }
                     circleoffset+=reIncidentsArray(d)+reIncidentsArray(privousValue)+30
                     for (var a= 0; a<circleoffset; a++){
-
                     }return a;})
-
                   .attr("r",0)
                   // .transition()
                   // .ease(d3.easeElastic)
@@ -141,7 +204,8 @@ svg.selectAll("circle").remove();
                       }else if (motivationArray[i]=="Identity"){
                         return "rgba(0,100,155,.6)";
                       }
-                  });
+                  })
+                  ;
 
 
 //text Target--
@@ -151,7 +215,7 @@ svg.selectAll("circle").remove();
         //     .data(incidentsArray).enter()
             circles.append("text")
             .classed('gtext', true)
-            .attr("x",function(d){return 200+ reIncidentsArray(d)})
+            .attr("x",function(d){return xP+ reIncidentsArray(d)})
             .attr("y",0)
             .transition()
             .ease(d3.easeElastic)
@@ -159,7 +223,7 @@ svg.selectAll("circle").remove();
             .duration(1000)
             .attr("y",function(d,i){
               if(i>0){
-               privousValue = incidentsArray[i-1];
+               privousValue = inArray[i-1];
              }
               circleoffset+=reIncidentsArray(d)+reIncidentsArray(privousValue)+30 ;return circleoffset;})
 
@@ -167,20 +231,22 @@ svg.selectAll("circle").remove();
             .attr('font-size',0)
 
             //.attr('text-anchor', 'middle')
-            .attr('font-size',16)
+            .attr('font-size',13)
             .text(function(d, i){ return targetArray[i]});
-//text Incidents--
+          //  .append("br")
+          //  .text(function(d, i){ return targetArray[i] +incidentsArray[i]}) ;
+//text Incidents--------------------------
             circleoffset=20;
              privousValue=0;
             circles.append("text")
             .classed('gtext', true)
             .attr("y",function(d,i){
               if(i>0){
-               privousValue = incidentsArray[i-1];
+               privousValue = inArray[i-1];
              }
               circleoffset+=reIncidentsArray(d)+reIncidentsArray(privousValue)+30 ;return circleoffset+15;})
-            .attr("x",function(d){return 200+ reIncidentsArray(d)})
+            .attr("x",function(d){return xP+ reIncidentsArray(d)})
             .attr("dy", ".35em")
             .attr('font-size',12)
-            .text(function(d, i){ return incidentsArray[i]});
+            .text(function(d, i){ return inArray[i]});
 }
