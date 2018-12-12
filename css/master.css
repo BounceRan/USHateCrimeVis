@@ -1,45 +1,133 @@
 html,body{
   margin: 0;
   height: 100%;
+
+}
+p { margin:0 }
+a {
+  color: black;
+ }
+ a:hover{
+color: yellow;
+ text-decoration: none;
+
+ }
+ a:link:active, a:visited:active {
+  color: grey;
 }
 
+h1{
+  padding-top: 15%
+  margin: auto;
+
+  /* text-align: center; */
+}
 
 g .gtext {
-opacity: 0.5;
+  font-weight:regular;
+opacity: 0.7;
 -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
 transition:  2s;
+
 }
 g:hover .gtext{
-  opacity: 1;
+
   -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
  transition:  2s;
  cursor : default;
 
+ opacity: 1;
+ font-size:13px;
+
+ fill:red;
+
 }
 
-/*  */
-/* g circle{ */
-/* opacity: 0.8; */
-/* -webkit-transition: 1s; /* For Safari 3.1 to 6.0 */
-/* transition:  1s;  */
-/* } */
-/* g:hover circle{ */
-  /* opacity: 1; */
-  /* -webkit-transition: 1s; /* For Safari 3.1 to 6.0 */
-  /* transition:  1s; */
+#views {
+   /* position: -webkit-sticky;
+  position: sticky; */
+  margin: auto;
+  top: 20px;
+  /* margin-left: 5%; */
+  background-color: grey;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+   outline:none;
+     font-size: 20px;
+}
+#views:hover {
+/* margin-left: : 5%; */
+background-color: darkGrey;
+border: none;
+   outline:none;
+}
 
-/* } */
+  div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    /* background-color: yellow; */
+    padding: 10px;
+     z-index: 1;
 
+  }
 
 .col-centered{
+    position: relative;
     float: none;
-    margin: 0 auto;
+    margin: auto;
+    display: block;
+/* padding-left: 100; */
+    /* margin: auto; */
+    width: 1100px;
+    background-color: : black;
 }
 
+.myfooter{
+    /* margin-bottom: 0px; */
+    padding: 1rem;
+    /* background-color: #efefef; */
+    text-align: center;
+    opacity:0;
+    /* display:inline; */
+    float: left;
+    margin-top:auto;
+    font-size: 14px;
+}
+
+footer {
+  background-color: grey;
+  position:fixed;
+    bottom: 0;
+    height: 80px;
+    left: 0;  right: 0;
+    /* position: absolute; */
+    width: 100%;
+}
+
+.citeNote{
+  margin-top: 20px;
+  margin-right: 20px;
+   color: black;
+    font-size: 12px;
+    width:400px;
+    /* display: inline-block ; */
+    float:right;
+text-align:right;
+
+
+}
+
+
 svg {
+
+/* display:inline; */
+  /* padding:100,20px,100,100; */
 position: absolute;
-/* display: inline-block;
-   margin-left: auto;
-   margin-right: auto; */
+/* margin: auto; */
+/* display: inline-block; */
+   /* margin-left: auto;
+   margin-right: auto;  */
 
 }

@@ -3,7 +3,7 @@ Ethnicity,White,613,734,789,681
 Ethnicity,Black,1745,2125,2201,1605
 Ethnicity,Native American,131,137,141,113
 Ethnicity,Asian,111,132,136,108
-Ethnicity,Native Hawaiian or Other Pacific Islander,4,6,6,3
+Ethnicity,Native Hawaiian or Other Islander,4,6,6,3
 Ethnicity,"Multiple Races, Group",113,138,160,83
 Ethnicity,Arab,37,47,48,35
 Ethnicity,Hispanic or Latino,299,379,392,325
@@ -24,7 +24,7 @@ Religion,Sikh,6,6,6,4
 Religion,Atheism/Agnosticism/etc.,2,2,2,0
 Orientation,Gay (Male),664,758,786,803
 Orientation,Lesbian,136,168,170,142
-Orientation,"Lesbian, Gay, Bisexual, or Transgender",203,235,248,218
+Orientation,"Homosexual, Bisexual or Transgender",203,235,248,218
 Orientation,Heterosexual,19,23,24,19
 Orientation,Bisexual,31,35,35,39
 Disability,Physical,43,52,52,40
