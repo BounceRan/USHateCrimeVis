@@ -15,11 +15,14 @@ var motivationArray3 = [],
   targetArray3 = [],
   incidentsArray3 = [];
 var condition = 0;
-
+//var colorPalette=["#581845","#900C3F","#C70039","#ff5733","#FFC300","#744C92"];
+//var colorPalette=["#2B3C6B","#4D3364","#632856","#701E45","#761931","#741E1E"];
+var colorPalette=["#CF2D35","#2B3C6B","#E42371","#06274B","#DE510E","#C661D1"];
 var heightVis = 500;
-
+var yearlist=[2015,2016,2017];
 var allignDataset=incidentsArray3;
 var allignDatasetforCondition2=[];
+var conditionTwoposition=[];
 // function preload() {
 //     // load the CSV data into our `table` variable and clip out the header row
 //     table17 = loadTable("dataset/2017HCbyBiasMotivation.csv", "csv", "header");
@@ -104,12 +107,12 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
       incidentsArray3.push(Number(data[i].incidents));
     }
 
-    conditionOne(incidentsArray3, 130, svg3);
+    conditionOne(incidentsArray3, 130, svg3, yearlist[2]);
 
 
-    conditionOne(incidentsArray2, 130, svg2);
+    conditionOne(incidentsArray2, 130, svg2,yearlist[1]);
 
-      conditionOne(incidentsArray, 130, svg);
+      conditionOne(incidentsArray, 130, svg, yearlist[0]);
 
   });
 
@@ -126,7 +129,7 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
 
 
 //condition one*********************************************
-function conditionOne(inArray, x1, svgPic) {
+function conditionOne(inArray, x1, svgPic,yearN) {
   let sumOfInci1 = d3.sum(inArray);
   // let sumOfInci2= d3.sum(inArray2);
   // let sumOfInci3= d3.sum(inArray3);
@@ -146,7 +149,8 @@ function conditionOne(inArray, x1, svgPic) {
   svgPic.selectAll("text").remove();
   d3.selectAll("svg").attr("height", heightVis);
 
-  var circles = svgPic //.selectAll("circle")
+
+  var circles = svgPic; //.selectAll("circle")
 
   // first data set
   circles.append("g").append("circle")
@@ -158,21 +162,21 @@ function conditionOne(inArray, x1, svgPic) {
     .ease(d3.easeElastic.period(0.8))
     .duration(2000)
     .attr("r", reSumOfInci(sumOfInci1))
-    .style("fill", "black");
+    .style("fill", "#2e2e2e");
   //text1
   circles.select("g").append("text")
     .classed('gtext', true)
     .attr("dy", ".35em")
     .attr('font-size', 12)
     .attr('text-anchor', 'middle')
-    .style("fill", "white")
+    .style("fill", "black")
     .append("tspan")
     .text(function(d, i) {
       return "Total"
     })
     .attr("y", y)
     .attr("x", function(d) {
-      return x1
+      return reSumOfInci(sumOfInci1)+140+10
     });
   svgPic.selectAll("text").append("tspan")
     .text(function(d, i) {
@@ -180,8 +184,18 @@ function conditionOne(inArray, x1, svgPic) {
     })
     .attr("y", y + 15)
     .attr("x", function(d) {
-      return x1
+      return reSumOfInci(sumOfInci1)+140 +10;
     });
+
+//Year infomation
+    circles.append("text")
+            .attr("y", "20px")
+            .attr('font-size', 15)
+            .text(function() {
+              return "Year: "+yearN;
+            })
+            .style("z-index", 1)
+              .style("fill", "black");
 
 
 
@@ -194,7 +208,7 @@ function conditionOne(inArray, x1, svgPic) {
 
 
 //*********************************************
-function conditionTwo(inArray, moArray, svgPic) {
+function conditionTwo(inArray, moArray, svgPic,yearN) {
 
   svgPic.selectAll("g").remove();
   svgPic.selectAll("text").remove();
@@ -249,9 +263,18 @@ function conditionTwo(inArray, moArray, svgPic) {
   // console.log(motivAll + ' aaa');
   // console.log(allEthni + ' aaa');
 allignDatasetforCondition2.push(motivAll)
-    console.log(allignDatasetforCondition2);
 
+  //console.log(allignDatasetforCondition2);
 
+  //Year infomation
+      svgPic.append("text")
+              .attr("y", "20px")
+              .attr('font-size', 15)
+              .text(function() {
+                return "Year: "+yearN;
+              })
+              .style("z-index", 1)
+                .style("fill", "black");
 
 
   circleoffset = 20;
@@ -268,12 +291,12 @@ allignDatasetforCondition2.push(motivAll)
     })
     .on("mouseover", function(d) {
       d3.select(this)
-        .attr("opacity", 1)
+      //  .attr("opacity", 1)
         .attr("r", reIncidentsArray(d) + 5);
     })
     .on("mouseout", function(d) {
       d3.select(this)
-        .attr("opacity", .8)
+        //.attr("opacity", .8)
         .attr("r", reIncidentsArray(d));
     })
     .style("opacity", 0)
@@ -281,17 +304,21 @@ allignDatasetforCondition2.push(motivAll)
     .transition()
     .ease(d3.easeElastic.period(.7))
     .duration(1000)
-    .style("opacity", .8)
+    .style("opacity", 1)
     .delay(function(d, i) {
       return i * 25
     })
     //.style("opacity", .8)
     .attr("cy", function(d, i) {
-      if (i > 0) {
-        privousValue = allignDatasetforCondition2[0][i - 1];
-      }
-      circleoffset += reIncidentsArray(allignDatasetforCondition2[0][i]) + reIncidentsArray(privousValue) + 30
-      return circleoffset;
+
+        if (i > 0) {
+          privousValue = allignDatasetforCondition2[0][i - 1];
+        }
+        if(conditionTwoposition.length<5){
+        conditionTwoposition.push(reIncidentsArray(allignDatasetforCondition2[0][i]));
+      };
+        circleoffset += reIncidentsArray(allignDatasetforCondition2[0][i]) + reIncidentsArray(privousValue) + 30
+        return circleoffset;
     })
 
     .attr("r", function(d, i) {
@@ -299,17 +326,17 @@ allignDatasetforCondition2.push(motivAll)
     })
     .style("fill", function(d, i) {
       if (moName[i] == "Ethnicity") {
-        return "rgba(200,0,0,.6)";
+        return colorPalette[0] ;
       } else if (moName[i] == "Religion") {
-        return "rgba(255,0,255,.6)";
+        return  colorPalette[1];
       } else if (moName[i] == "Orientation") {
-        return "rgba(255,100,155,.6)";
+        return  colorPalette[2];
       } else if (moName[i] == "Disability") {
-        return "rgba(55,200,55,.6)";
+        return  colorPalette[3];
       } else if (moName[i] == "Gender") {
-        return "rgba(255,0,155,.6)";
+        return  colorPalette[4];
       } else if (moName[i] == "Identity") {
-        return "rgba(0,100,155,.6)";
+        return colorPalette[5];
       }
     });
   //text Target--
@@ -328,9 +355,9 @@ allignDatasetforCondition2.push(motivAll)
     .attr('font-size', 12)
     .attr("y", function(d, i) {
       if (i > 0) {
-        privousValue = motivAll[i - 1];
+        privousValue = allignDatasetforCondition2[0][i - 1];
       }
-      circleoffset += reIncidentsArray(d) + reIncidentsArray(privousValue) + 30;
+      circleoffset += reIncidentsArray(allignDatasetforCondition2[0][i]) + reIncidentsArray(privousValue) + 30;
       return circleoffset;
     })
     .style("opacity", 0)
@@ -354,9 +381,9 @@ allignDatasetforCondition2.push(motivAll)
     .classed('gtext', true)
     .attr("y", function(d, i) {
       if (i > 0) {
-        privousValue = motivAll[i - 1];
+        privousValue = allignDatasetforCondition2[0][i - 1];
       }
-      circleoffset += reIncidentsArray(d) + reIncidentsArray(privousValue) + 30;
+      circleoffset += reIncidentsArray(allignDatasetforCondition2[0][i]) + reIncidentsArray(privousValue) + 30;
       return circleoffset + 15;
     })
     .attr("x", function(d) {
@@ -374,9 +401,10 @@ allignDatasetforCondition2.push(motivAll)
       return motivAll[i]
     });
 
+
 }
 //********************************************************************
-function conditionThree(inArray, svgPic) {
+function conditionThree(inArray,moArray, svgPic,yearN) {
 
 
 
@@ -388,6 +416,17 @@ function conditionThree(inArray, svgPic) {
   svgPic.selectAll("circle").remove();
 
   d3.selectAll("svg").attr("height", heightVis);
+
+  //Year infomation
+      svgPic.append("text")
+              .attr("y", "20px")
+              .attr('font-size', 15)
+              .text(function() {
+                return "Year: "+yearN;
+              })
+              .style("z-index", 1)
+                .style("fill", "black");
+
 
   //remap the incidents data
   //var maxOfInci= incidentsArray.sort(d3.descending);
@@ -409,26 +448,23 @@ function conditionThree(inArray, svgPic) {
     // .attr("cy", function(d) {
     //   return reIncidentsArray(d)
     // })
-    .attr("cy", function(d) {
-      return reIncidentsArray(d)
+    .on("mouseout", function(d) {
+      d3.select(this)
+      //  .attr("opacity", .8)
+        .attr("r", reIncidentsArray(d));
     })
     .on("mouseover", function(d) {
       d3.select(this)
-        .attr("opacity", 1)
+        //.attr("opacity", 1)
         .attr("r", reIncidentsArray(d) + 5);
-    })
-    .on("mouseout", function(d) {
-      d3.select(this)
-        .attr("opacity", .8)
-        .attr("r", reIncidentsArray(d));
     })
     .transition()
     .ease(d3.easeElastic.period(.7))
     .duration(2000)
-    .delay(function(d, i) {
-      return i * 25
-    })
-    .style("opacity", .8)
+    // .delay(function(d, i) {
+    //   return i * 25
+    // })
+
     // .attr("cy", function(i, d) {
     //   for(var a=0; a<incidentsArray3.length;a++){
     //   if (a > 0) {
@@ -439,6 +475,21 @@ function conditionThree(inArray, svgPic) {
     //   }
     //
     // })
+    .attr("cy", function(d,i) {
+      if (motivationArray[i] == "Ethnicity") {
+        return conditionTwoposition[0];
+      } else if (motivationArray[i] == "Religion") {
+        return conditionTwoposition[1];
+      } else if (motivationArray[i] == "Orientation") {
+        return conditionTwoposition[2];
+      } else if (motivationArray[i] == "Disability") {
+        return conditionTwoposition[3];
+      } else if (motivationArray[i] == "Gender") {
+        return conditionTwoposition[4];
+      } else if (motivationArray[i] == "Identity") {
+        return conditionTwoposition[5];
+      };
+    })
     .attr("cy", function(d, i) {
       if (i > 0) {
         privousValue = allignDataset[i - 1];
@@ -449,29 +500,25 @@ function conditionThree(inArray, svgPic) {
 
     })
     .attr("r", 0)
-    // .transition()
-    // .ease(d3.easeElastic)
-    // .duration(2000)
-
     .attr("r", function(d, i) {
       return reIncidentsArray(d)
     })
     //.style("fill","rgba(200,0,0,.6)")
-
+    .attr("opacity", 1)
 
     .style("fill", function(d, i) {
-      if (motivationArray[i] == "Ethnicity") {
-        return "rgba(200,0,0,.6)";
-      } else if (motivationArray[i] == "Religion") {
-        return "rgba(255,0,255,.6)";
-      } else if (motivationArray[i] == "Orientation") {
-        return "rgba(255,100,155,.6)";
-      } else if (motivationArray[i] == "Disability") {
-        return "rgba(55,200,55,.6)";
-      } else if (motivationArray[i] == "Gender") {
-        return "rgba(255,0,155,.6)";
-      } else if (motivationArray[i] == "Identity") {
-        return "rgba(0,100,155,.6)";
+      if (moArray[i] == "Ethnicity") {
+        return colorPalette[0] ;
+      } else if (moArray[i] == "Religion") {
+        return  colorPalette[1];
+      } else if (moArray[i] == "Orientation") {
+        return  colorPalette[2];
+      } else if (moArray[i] == "Disability") {
+        return  colorPalette[3];
+      } else if (moArray[i] == "Gender") {
+        return  colorPalette[4];
+      } else if (moArray[i] == "Identity") {
+        return colorPalette[5];
       }
     });
 
@@ -538,29 +585,33 @@ function conditionThree(inArray, svgPic) {
     .text(function(d, i) {
       return inArray[i]
     });
+
+
 };
 
 d3.select("#views").on("click", function() {
   if (condition == 0) {
 
-    heightVis = 1000;
+    heightVis = 800;
 
-    endingOne();
+    //endingOne();
 
-    setTimeout(function() {
-      conditionTwo(incidentsArray, motivationArray, svg);
-      conditionTwo(incidentsArray2, motivationArray2, svg2);
-      conditionTwo(incidentsArray3, motivationArray3, svg3);
-    }, 500)
+  //  setTimeout(function() {
+      conditionTwo(incidentsArray3, motivationArray3, svg3,yearlist[2]);
+        conditionTwo(incidentsArray2, motivationArray2, svg2,yearlist[1]);
+      conditionTwo(incidentsArray, motivationArray, svg,yearlist[0]);
+
+
+  //  }, 500)
 
     condition = 1;
 
   } else if (condition == 1) {
 
     heightVis = 1800;
-    conditionThree(incidentsArray, svg);
-    conditionThree(incidentsArray2, svg2);
-    conditionThree(incidentsArray3, svg3);
+    conditionThree(incidentsArray,motivationArray, svg,yearlist[0]);
+    conditionThree(incidentsArray2,motivationArray2, svg2,yearlist[1]);
+    conditionThree(incidentsArray3,motivationArray3,svg3 ,yearlist[2]);
 
     condition = 2;
     d3.select("myfooter").style("bottom", 0);
@@ -569,13 +620,15 @@ d3.select("#views").on("click", function() {
     heightVis = 400;
 
     d3.select("myfooter").style("bottom", 0);
-    conditionOne(incidentsArray, 130, svg);
-    conditionOne(incidentsArray2, 130, svg2);
-    conditionOne(incidentsArray3, 130, svg3);
+    conditionOne(incidentsArray3, 130, svg3, yearlist[2]);
+    conditionOne(incidentsArray2, 130, svg2,yearlist[1]);
+    conditionOne(incidentsArray, 130, svg, yearlist[0]);
     //conditionThree(300);
     condition = 0;
     //console.log(condition);
   };
+
+
 });
 
 function endingOne() {

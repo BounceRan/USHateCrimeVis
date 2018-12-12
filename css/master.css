@@ -1,14 +1,15 @@
 html,body{
   margin: 0;
   height: 100%;
-
+  background-color: #ebeae8
+;
 }
 p { margin:0 }
 a {
   color: black;
  }
  a:hover{
-color: yellow;
+   color: #CF2D35;
  text-decoration: none;
 
  }
@@ -17,8 +18,10 @@ color: yellow;
 }
 
 h1{
-  padding-top: 15%
+  padding-top: 5%
   margin: auto;
+  font-family: 'Old Standard TT', serif;
+  font-size: 40px;
 
   /* text-align: center; */
 }
@@ -30,9 +33,14 @@ opacity: 0.7;
 transition:  2s;
 
 }
+
+circle:hover {
+opacity:1;
+
+}
 g:hover .gtext{
 
-  -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
+-webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
  transition:  2s;
  cursor : default;
 
@@ -48,28 +56,34 @@ g:hover .gtext{
   position: sticky; */
   margin: auto;
   top: 20px;
-  /* margin-left: 5%; */
+  /* margin-left : 90%; */
   background-color: grey;
   padding: 10px;
   font-size: 14px;
   border: none;
    outline:none;
-     font-size: 20px;
+   border-radius: 40px;
+   -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
+    transition:  2s;
+
 }
 #views:hover {
 /* margin-left: : 5%; */
-background-color: darkGrey;
+background-color: #C70039;
 border: none;
    outline:none;
+   -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
+    transition:  2s;
+    cursor: pointer;
 }
 
   div.sticky {
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
-    /* background-color: yellow; */
+    top: 10px;
     padding: 10px;
      z-index: 1;
+     padding-left:90%;
 
   }
 
@@ -91,13 +105,13 @@ border: none;
     text-align: center;
     opacity:0;
     /* display:inline; */
-    float: left;
+    float: right;
     margin-top:auto;
     font-size: 14px;
 }
 
 footer {
-  background-color: grey;
+  background-color: #c9c9c9;
   position:fixed;
     bottom: 0;
     height: 80px;
@@ -108,13 +122,13 @@ footer {
 
 .citeNote{
   margin-top: 20px;
-  margin-right: 20px;
+  margin-left: 20px;
    color: black;
     font-size: 12px;
-    width:400px;
+    width:350px;
     /* display: inline-block ; */
-    float:right;
-text-align:right;
+    float:left;
+text-align:left;
 
 
 }
