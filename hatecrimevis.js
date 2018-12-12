@@ -113,6 +113,7 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
     conditionOne(incidentsArray2, 130, svg2,yearlist[1]);
 
       conditionOne(incidentsArray, 130, svg, yearlist[0]);
+      increaseText();
 
   });
 
@@ -148,6 +149,7 @@ function conditionOne(inArray, x1, svgPic,yearN) {
   svgPic.selectAll("circle").remove();
   svgPic.selectAll("text").remove();
   d3.selectAll("svg").attr("height", heightVis);
+  d3.selectAll("#increaseRate").style("visibility", "visible");
 
 
   var circles = svgPic; //.selectAll("circle")
@@ -213,6 +215,7 @@ function conditionTwo(inArray, moArray, svgPic,yearN) {
   svgPic.selectAll("g").remove();
   svgPic.selectAll("text").remove();
   svgPic.selectAll("circle").remove();
+  d3.selectAll("#increaseRate").style("visibility", "hidden");
 
   d3.selectAll("svg").attr("height", heightVis);
 
@@ -415,6 +418,7 @@ function conditionThree(inArray,moArray, svgPic,yearN) {
   svgPic.selectAll("text").remove();
   svgPic.selectAll("circle").remove();
 
+
   d3.selectAll("svg").attr("height", heightVis);
 
   //Year infomation
@@ -437,7 +441,7 @@ function conditionThree(inArray,moArray, svgPic,yearN) {
   var privousValue = 0;
   var reIncidentsArray = d3.scaleLinear()
     .domain([0, 2050])
-    .range([1, 60]);
+    .range([3, 80]);
   var circles = svgPic.selectAll("circle")
     .data(inArray)
     .enter()
@@ -608,7 +612,7 @@ d3.select("#views").on("click", function() {
 
   } else if (condition == 1) {
 
-    heightVis = 1800;
+    heightVis = 2000;
     conditionThree(incidentsArray,motivationArray, svg,yearlist[0]);
     conditionThree(incidentsArray2,motivationArray2, svg2,yearlist[1]);
     conditionThree(incidentsArray3,motivationArray3,svg3 ,yearlist[2]);
@@ -623,6 +627,7 @@ d3.select("#views").on("click", function() {
     conditionOne(incidentsArray3, 130, svg3, yearlist[2]);
     conditionOne(incidentsArray2, 130, svg2,yearlist[1]);
     conditionOne(incidentsArray, 130, svg, yearlist[0]);
+    increaseText();
     //conditionThree(300);
     condition = 0;
     //console.log(condition);
@@ -675,5 +680,18 @@ function checkScrollPosition() {
     .duration(1000)
     .style("opacity", 0);
   }
+
+}
+
+
+function increaseText(){
+
+
+  var div = document.getElementById('increaseRate');
+ let inci2016= d3.sum(incidentsArray2);
+  let inci2017= d3.sum(incidentsArray3);
+let increaseR= Number((inci2017-inci2016)/inci2016);
+div.innerHTML = "In 2017, hate crimes were up "+ Math.round(increaseR * 1000)/10  +" percent compared to 2016.";
+
 
 }

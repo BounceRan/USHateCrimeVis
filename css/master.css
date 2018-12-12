@@ -4,9 +4,28 @@ html,body{
   background-color: #ebeae8
 ;
 }
-p { margin:0 }
+
+
+ p { margin:0 }
+#subtitle{
+color:rgb(133, 133, 133);
+font-size:12px;
+display: block;
+}
+#mainDes{
+  position: relative;
+  margin-left:  5%;
+  padding-bottom:  2%;
+  display: block;
+  background-color: white;
+  /* padding-top: -30px; */
+color:rgb(62, 62, 62);
+font-size:14px;
+width: 680px;
+}
+
 a {
-  color: black;
+  color: rgb(115, 115, 115);
  }
  a:hover{
    color: #CF2D35;
@@ -24,6 +43,15 @@ h1{
   font-size: 40px;
 
   /* text-align: center; */
+}
+#increaseRate{
+font-size: 12px;
+margin-top: 300px;
+margin-left: 50%;
+color:rgb(77, 77, 77);
+  text-align: center;
+
+
 }
 
 g .gtext {
@@ -83,7 +111,7 @@ border: none;
     top: 10px;
     padding: 10px;
      z-index: 1;
-     padding-left:90%;
+     padding-left:85%;
 
   }
 
