@@ -32,7 +32,7 @@ var conditionTwoposition=[];
 
 var svg = d3.selectAll("#viz") //.append("div").attr("class", "column")
   .append("svg")
-  .attr("id", "firstData")
+  .attr("id", "insData")
   .attr("height", heightVis)
 
   //.attr("min-width",'300')
@@ -46,7 +46,7 @@ var svg = d3.selectAll("#viz") //.append("div").attr("class", "column")
 
 var svg2 = d3.selectAll("#viz") //.append("div").attr("class", "column")
   .append("svg")
-  .attr("id", "secondData")
+  .attr("id", "insData")
   .attr("height", heightVis)
   //.attr("width", "33.3%")
   //.attr("min-width",'300')
@@ -59,7 +59,7 @@ var svg2 = d3.selectAll("#viz") //.append("div").attr("class", "column")
 
 var svg3 = d3.selectAll("#viz") //.append("div").attr("class", "column")
   .append("svg")
-  .attr("id", "thirdData")
+  .attr("id", "insData")
   .attr("height", heightVis)
   //.attr("width", "33.3%")
   //.attr("min-width",'300')
@@ -94,9 +94,7 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
       incidentsArray2.push(Number(data[i].incidents));
     }
 
-
   });
-
   d3.csv("dataset/2017HCbyBiasMotivation.csv", function(error, data) {
     if (error) throw error;
     table17 = data;
@@ -148,7 +146,7 @@ function conditionOne(inArray, x1, svgPic,yearN) {
   svgPic.selectAll("g").remove();
   svgPic.selectAll("circle").remove();
   svgPic.selectAll("text").remove();
-  d3.selectAll("svg").attr("height", heightVis);
+  d3.selectAll("#insData").attr("height", heightVis);
   d3.selectAll("#increaseRate").style("visibility", "visible");
 
 
@@ -217,7 +215,7 @@ function conditionTwo(inArray, moArray, svgPic,yearN) {
   svgPic.selectAll("circle").remove();
   d3.selectAll("#increaseRate").style("visibility", "hidden");
 
-  d3.selectAll("svg").attr("height", heightVis);
+  d3.selectAll("#insData").attr("height", heightVis);
 
 
   let xP = 130;
@@ -419,7 +417,7 @@ function conditionThree(inArray,moArray, svgPic,yearN) {
   svgPic.selectAll("circle").remove();
 
 
-  d3.selectAll("svg").attr("height", heightVis);
+  d3.selectAll("#insData").attr("height", heightVis);
 
   //Year infomation
       svgPic.append("text")
