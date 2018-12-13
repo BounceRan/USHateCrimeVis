@@ -139,7 +139,7 @@ function conditionOne(inArray, x1, svgPic,yearN) {
 
   var reSumOfInci = d3.scaleLinear()
     .domain([5600, 7500])
-    .range([80, 120]);
+    .range([60, 100]);
   // .range([window.innerWidth*.33*.266,window.innerWidth*.33*.4]);
 //  console.log(reSumOfInci(sumOfInci1));
   svgPic.selectAll("g").remove();
@@ -189,6 +189,7 @@ function conditionOne(inArray, x1, svgPic,yearN) {
 //Year infomation
     circles.append("text")
             .attr("y", "20px")
+            .attr("x", "30px")
             .attr('font-size', 15)
             .text(function() {
               return "Year: "+yearN;
@@ -269,6 +270,7 @@ allignDatasetforCondition2.push(motivAll)
   //Year infomation
       svgPic.append("text")
               .attr("y", "20px")
+              .attr("x", "30px")
               .attr('font-size', 15)
               .text(function() {
                 return "Year: "+yearN;
@@ -421,6 +423,7 @@ function conditionThree(inArray,moArray, svgPic,yearN) {
   //Year infomation
       svgPic.append("text")
               .attr("y", "20px")
+              .attr("x", "30px")
               .attr('font-size', 15)
               .text(function() {
                 return "Year: "+yearN;
