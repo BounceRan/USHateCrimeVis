@@ -83,7 +83,8 @@
             d3.select(this)
             .transition()
             .duration(500)
-            .style("fill", "#6f3030");
+            //.style("fill-opacity", .9)
+            .style("fill", "#532b2b");
             tooltip.transition()
             .duration(1000)
             .style("opacity", .9);
