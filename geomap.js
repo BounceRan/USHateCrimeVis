@@ -83,7 +83,7 @@
             d3.select(this)
             .transition()
             .duration(500)
-            .style("fill", "#902a2a");
+            .style("fill", "#6f3030");
             tooltip.transition()
             .duration(1000)
             .style("opacity", .9);
@@ -118,7 +118,7 @@
             .style("opacity", 0);
         })
   	.style("stroke", "#c4c3c3")
-  	.style("stroke-width", ".1")
+  	.style("stroke-width", ".2")
   	.style("fill", function(d) {
     // console.log(d);
   //	Get data value
