@@ -40,7 +40,7 @@ var svg = d3.selectAll("#viz") //.append("div").attr("class", "column")
   .attr("width", '380')
   //.style("display", "inline")
   //  .attr("x",0)
-  .style("left", '0')
+  .style("left", '0');
 //.style('background', 'lightgrey');
 //.attr("viewBox", "0 0 300 300");
 
@@ -53,7 +53,7 @@ var svg2 = d3.selectAll("#viz") //.append("div").attr("class", "column")
   //.style("left", "33.3%")
   //.style("display", "inline")
   .attr("width", '380')
-  .style("left", "380")
+  .style("left", "380");
 
 //.style('background', 'lightgrey');
 
@@ -65,7 +65,7 @@ var svg3 = d3.selectAll("#viz") //.append("div").attr("class", "column")
   //.attr("min-width",'300')
   //.style("left", '66.6%')
   .attr("width", '380')
-  .style("left", "760")
+  .style("left", "760");
 
 //.style("position","absolute")
 //.style('background', 'lightgrey');
@@ -432,8 +432,6 @@ function conditionThree(inArray,moArray, svgPic,yearN) {
   //remap the incidents data
   //var maxOfInci= incidentsArray.sort(d3.descending);
   var maxOfInci = d3.max(inArray);
-  console.log(inArray[1]);
-  console.log(maxOfInci);
   var circleoffset = 20;
   var privousValue = 0;
   var reIncidentsArray = d3.scaleLinear()
