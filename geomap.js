@@ -23,8 +23,6 @@
 
 
 
-  var legendText = ["Cities Lived", "States Lived", "States Visited", "Nada"];
-
   //Create SVG element and append map to the SVG
   var svgMap = d3.selectAll("#vizMap")
   			.append("svg")
@@ -44,11 +42,11 @@
   //     		    .style("opacity", 0);
 
   // Load in my states data!
-  d3.csv("dataset/2017_hateCrimeByStates/2017hateCrimeByStates.csv", function(data) {
+  d3.csv("dataset/2017_hateCrimeByStates/2017hateCrimeByStates.csv", function(error,data) {
   //color.domain([0,1,2,3]); // setting the range of the input data
 
   // Load GeoJSON data and merge with states data
-  d3.json("dataset/us_states.json", function(json) {
+  d3.json("dataset/us_states.json", function(error, json) {
 
   // Loop through each state data value in the .csv file
   for (var i = 0; i < data.length; i++) {
@@ -163,6 +161,7 @@
   .attr("transform", "rotate(-90)")
   .style("text-anchor", "left")
   .text("Offenses Number");
+
   	});
 
   });

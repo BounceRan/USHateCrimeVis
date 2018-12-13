@@ -75,7 +75,6 @@ var svg3 = d3.selectAll("#viz") //.append("div").attr("class", "column")
 
 d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
   if (error) throw error;
-  table17 = data;
 
   for (var i = 0; i < data.length; i++) {
     targetArray.push(data[i].target);
@@ -86,7 +85,7 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
 
   d3.csv("dataset/2016HCbyBiasMotivation.csv", function(error, data) {
     if (error) throw error;
-    table17 = data;
+
 
     for (var i = 0; i < data.length; i++) {
       targetArray2.push(data[i].target);
@@ -97,7 +96,6 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
   });
   d3.csv("dataset/2017HCbyBiasMotivation.csv", function(error, data) {
     if (error) throw error;
-    table17 = data;
 
     for (var i = 0; i < data.length; i++) {
       targetArray3.push(data[i].target);
