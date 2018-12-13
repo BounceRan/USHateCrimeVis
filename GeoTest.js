@@ -94,7 +94,7 @@
                .style("left", (d3.event.pageX) + "px")
                .style("top", (d3.event.pageY - 28) + "px");
              }else{
-               tooltip.html("<p>"+d.properties.NAME+"</p>"+d.properties.offenses)
+               tooltip.html("<p>"+d.properties.NAME+"</p>"+"Total Offenses: "+d.properties.offenses)
                .style("left", (d3.event.pageX) + "px")
                .style("top", (d3.event.pageY - 28) + "px");
 
