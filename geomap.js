@@ -42,7 +42,7 @@
   //     		    .style("opacity", 0);
 
   // Load in my states data!
-  d3.csv("dataset/2017_hateCrimeByStates/2017hateCrimeByStates.csv", function(error,data) {
+  d3.csv("dataset/2017hateCrimeByStates.csv", function(error, data) {
   //color.domain([0,1,2,3]); // setting the range of the input data
 
   // Load GeoJSON data and merge with states data

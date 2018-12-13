@@ -81,6 +81,7 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
     motivationArray.push(data[i].motivation);
     incidentsArray.push(Number(data[i].incidents));
 
+
   }
 
   d3.csv("dataset/2016HCbyBiasMotivation.csv", function(error, data) {
@@ -93,7 +94,7 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
       incidentsArray2.push(Number(data[i].incidents));
     }
 
-  });
+
   d3.csv("dataset/2017HCbyBiasMotivation.csv", function(error, data) {
     if (error) throw error;
 
@@ -112,7 +113,7 @@ d3.csv("dataset/2015HCbyBiasMotivation.csv", function(error, data) {
       increaseText();
 
   });
-
+});
 
 
 
@@ -140,7 +141,7 @@ function conditionOne(inArray, x1, svgPic,yearN) {
     .domain([5600, 7500])
     .range([80, 120]);
   // .range([window.innerWidth*.33*.266,window.innerWidth*.33*.4]);
-  console.log(reSumOfInci(sumOfInci1));
+//  console.log(reSumOfInci(sumOfInci1));
   svgPic.selectAll("g").remove();
   svgPic.selectAll("circle").remove();
   svgPic.selectAll("text").remove();
