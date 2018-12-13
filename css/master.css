@@ -1,8 +1,7 @@
 html,body{
   margin: 0;
   height: 100%;
-  background-color: #ebeae8
-;
+  background-color: #eeeded;
 }
 
 
@@ -86,7 +85,7 @@ g:hover .gtext{
   margin: auto;
   top: 20px;
   /* margin-left : 90%; */
-  background-color: grey;
+  background-color: #acaaaa;
   padding: 10px;
   font-size: 14px;
   border: none;
@@ -98,7 +97,7 @@ g:hover .gtext{
 }
 #views:hover {
 /* margin-left: : 5%; */
-background-color: #C70039;
+background-color: #b51818;
 border: none;
    outline:none;
    -webkit-transition: 2s; /* For Safari 3.1 to 6.0 */
@@ -140,7 +139,7 @@ border: none;
 }
 
 footer {
-  background-color: #c9c9c9;
+  background-color: #c3c3c3;
   position:fixed;
     bottom: 0;
     height: 80px;
@@ -177,10 +176,4 @@ display:inline;
 /* display: inline-block; */
    /* margin-left: auto;
    margin-right: auto;  */
-}
-
-#vizMap svg {
-
-display: block;
-/* position: ; */
 }

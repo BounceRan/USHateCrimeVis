@@ -1,0 +1,77 @@
+path{
+
+
+}
+
+
+
+path:hover {
+/* fill-opacity: .7; */
+
+/* fill: orange; */
+
+
+}
+
+/* Style for Custom Tooltip */
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: white;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* Legend Position Style */
+/* .legend {
+	position:absolute;
+	left:800px;
+	top:350px;
+} */
+#mapOnly {
+  /* display:inline ; */
+  /* padding-left: 30%; */
+  margin: auto;
+}
+
+div #vizMap {
+  vertical-align: middle;
+  /* display: inline; */
+  margin: auto;
+  width: 940px;
+  height: 600px;
+}
+
+#key {
+  /* float: right; */
+  /* padding-left: 100px; */
+  /* position: relative; */
+  display: inline;
+}
+
+.axis text {
+  font: 8px sans-serif;
+}
+
+.axis line, .axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+  font: 12px sans-serif;
+  background: #fff;
+  border: 0px;
+  pointer-events: none;
+}

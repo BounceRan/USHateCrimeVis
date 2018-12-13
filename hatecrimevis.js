@@ -169,7 +169,7 @@ function conditionOne(inArray, x1, svgPic,yearN) {
     .attr("dy", ".35em")
     .attr('font-size', 12)
     .attr('text-anchor', 'middle')
-    .style("fill", "black")
+    .style("fill", "#2a2323")
     .append("tspan")
     .text(function(d, i) {
       return "Total"
