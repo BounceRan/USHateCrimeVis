@@ -19,7 +19,7 @@ var condition = 0;
 //var colorPalette=["#2B3C6B","#4D3364","#632856","#701E45","#761931","#741E1E"];
 var colorPalette=["#9e4246","#3c4f86","#aa3a68","#306b63","#64713a","#7c3a54"];
 //var colorPalette=["#ec4149","#3a66e2","#df4c90","#49d0bd","#bede51","#4b93e3"];
-var heightVis = 500;
+var heightVis = 400;
 var yearlist=[2015,2016,2017];
 var allignDataset=incidentsArray3;
 var allignDatasetforCondition2=[];
@@ -190,8 +190,9 @@ function conditionOne(inArray, x1, svgPic,yearN) {
 //Year infomation
     circles.append("text")
             .attr("y", "20px")
-            .attr("x", "30px")
+            .attr("x", "90px")
             .attr('font-size', 15)
+            //.attr("margin-right",'33%')
             .text(function() {
               return "Year: "+yearN;
             })
@@ -271,7 +272,7 @@ allignDatasetforCondition2.push(motivAll)
   //Year infomation
       svgPic.append("text")
               .attr("y", "20px")
-              .attr("x", "30px")
+              .attr("x", "90px")
               .attr('font-size', 15)
               .text(function() {
                 return "Year: "+yearN;
@@ -424,7 +425,7 @@ function conditionThree(inArray,moArray, svgPic,yearN) {
   //Year infomation
       svgPic.append("text")
               .attr("y", "20px")
-              .attr("x", "30px")
+              .attr("x", "90px")
               .attr('font-size', 15)
               .text(function() {
                 return "Year: "+yearN;
@@ -595,7 +596,7 @@ function conditionThree(inArray,moArray, svgPic,yearN) {
 d3.select("#views").on("click", function() {
   if (condition == 0) {
 
-    heightVis = 800;
+    heightVis = 700;
 
     //endingOne();
 
@@ -611,7 +612,7 @@ d3.select("#views").on("click", function() {
 
   } else if (condition == 1) {
 
-    heightVis = 2000;
+    heightVis = 1900;
     conditionThree(incidentsArray,motivationArray, svg,yearlist[0]);
     conditionThree(incidentsArray2,motivationArray2, svg2,yearlist[1]);
     conditionThree(incidentsArray3,motivationArray3,svg3 ,yearlist[2]);

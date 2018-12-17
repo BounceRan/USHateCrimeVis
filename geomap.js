@@ -2,7 +2,7 @@
 
   //Width and height of map
   var width = 780;
-  var height = 520;
+  var height = 500;
 
 
   var minimum = 0, middlepart= 200, maximum = 1270;
