@@ -1,5 +1,7 @@
 # Hate crime by bias motivation 2014-2017 Visualization Project
 
+Live Sample: https://bounceran.github.io/USHateCrimeVis/
+
 ## Data Source:
 United States Department of Justice, Federal Bureau of
 Investigation. (November 2018). Hate Crime Statistics,
@@ -7,7 +9,7 @@ Investigation. (November 2018). Hate Crime Statistics,
 * [2017 Crime Data](https://ucr.fbi.gov/hate-crime/2017)
 * [2016 Crime Data](https://ucr.fbi.gov/hate-crime/2016)
 * [2015 Crime Data](https://ucr.fbi.gov/hate-crime/2015)
-* [2014 Crime Data](https://ucr.fbi.gov/hate-crime/2014)
+
 
 
 ## Description:
