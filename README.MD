@@ -1,6 +1,6 @@
 # Hate crime by bias motivation 2014-2017 Visualization Project
 
-Live Sample: https://shuvit.github.io/USHateCrimeVis/
+Live Sample: https://shuvitran.github.io/USHateCrimeVis/
 
 ## Data Source:
 United States Department of Justice, Federal Bureau of
